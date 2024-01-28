@@ -1,4 +1,4 @@
-import WaLayout from '@/components/WaLayout'
+import WaLayout from '@/components/WaLayout/WaLayout'
 import Home from '@/views/Home/Home'
 import { Routes, Route } from 'react-router-dom'
 

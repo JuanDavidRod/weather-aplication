@@ -1,0 +1,25 @@
+.footer {
+    width: 90%;
+    margin: auto;
+    position: absolute;
+    bottom: 10px;
+}
+
+.footer p {
+    color: #444;
+}
+
+.footer strong {
+    color: #515151;
+}
+
+.footer_icon{
+    display: flex;
+    justify-content: end;
+}
+
+.footer_icon span{
+    margin: 5px;
+    font-size: 18px;
+    color: #515151;
+}
