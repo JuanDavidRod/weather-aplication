@@ -1,0 +1,17 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    padding: 16px;
+}
+
+.header h3 {
+    font-weight: 300;
+    color: #515151;
+    font-size: 16px;
+}
+
+.header h2{
+    font-weight: 400;
+    font-size: 25px;
+    color: #fff;
+}
