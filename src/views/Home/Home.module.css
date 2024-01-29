@@ -1,0 +1,35 @@
+.home{
+    height: 50%;
+    display: flex;
+    margin-top: 50px;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+h1{
+    font-weight: 800;
+    text-align: center;
+    font-size: 80px;
+    margin-left: 35px;
+    background: linear-gradient(140deg, rgb(255,0,226) 20%, rgb(0,61,255) 75%);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+
+.select_city{
+    width: 80%;
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.select_city label{
+    width: 100%;
+}
+
+.select_city h2{
+    font-weight: 400;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+}
