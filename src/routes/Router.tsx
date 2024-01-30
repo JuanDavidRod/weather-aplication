@@ -1,5 +1,6 @@
 import WaLayout from '@/components/WaLayout/WaLayout'
 import Home from '@/views/Home/Home'
+import Weather from '@/views/Weather/Weather'
 import { Routes, Route } from 'react-router-dom'
 
 const Router = () => {
@@ -7,6 +8,7 @@ const Router = () => {
     <Routes>
       <Route path='/' element={<WaLayout />}>
         <Route index element={<Home />} />
+        <Route path='/weather' element={<Weather />} />
       </Route>
     </Routes>
   )

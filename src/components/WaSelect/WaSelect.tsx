@@ -6,7 +6,7 @@ type optionsSelect = {label: string, value: string}
 interface Props {
   options: optionsSelect[]
   placeholder: string
-  onChange: () => void
+  onChange: (value: any, option: optionsSelect | optionsSelect[]) => void
 }
 
 const WaSelect = ({ options, placeholder, onChange }: Props) => {
