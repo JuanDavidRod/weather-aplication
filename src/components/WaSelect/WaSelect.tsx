@@ -1,20 +1,22 @@
-import { Select } from 'antd'
+import { Alert, Select } from 'antd'
 import style from './WaSelect.module.css'
-
-type optionsSelect = {label: string, value: string}
+import { type City } from '@/vite-env'
 
 interface Props {
-  options: optionsSelect[]
+  options: City[]
   placeholder: string
-  onChange: (value: any, option: optionsSelect | optionsSelect[]) => void
+  onChange: (value: any, option: City | City[]) => void
+  onSearch: (value: string) => void
+  loading:boolean
 }
 
-const WaSelect = ({ options, placeholder, onChange }: Props) => {
-  const filterOption = (input: string, option?: { label: string; value: string }) =>
+const WaSelect = ({ options, placeholder, loading, onChange, onSearch }: Props) => {
+  const filterOption = (input: string, option?: City) =>
     (option?.label ?? '').toLowerCase().includes(input.toLowerCase())
 
   return (
     <Select
+      loading={loading}
       className={style.waSelect}
       showSearch
       placeholder={placeholder}
@@ -22,6 +24,8 @@ const WaSelect = ({ options, placeholder, onChange }: Props) => {
       onChange={onChange}
       filterOption={filterOption}
       options={options}
+      onSearch={onSearch}
+      notFoundContent={<Alert message='No hay ciudades sugeridas' type='info' />}
     />
   )
 }
