@@ -8,7 +8,7 @@ const Router = () => {
     <Routes>
       <Route path='/' element={<WaLayout />}>
         <Route index element={<Home />} />
-        <Route path='/weather' element={<Weather />} />
+        <Route path='weather/:idcity' element={<Weather />} />
       </Route>
     </Routes>
   )

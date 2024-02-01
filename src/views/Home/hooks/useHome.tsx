@@ -11,7 +11,7 @@ const useHome = () => {
 
   const handleChangeLocation = (location: string) => {
     console.log(location)
-    navigationTo('/weather')
+    navigationTo('/weather/' + location)
   }
 
   const handleSearchCity = async (search:string) => {
@@ -23,7 +23,7 @@ const useHome = () => {
     } catch (error) {
       console.log(error)
     } finally {
-      setLoading(true)
+      setLoading(false)
     }
   }
 
