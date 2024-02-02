@@ -67,7 +67,7 @@ export const searchCities = async ({ search }: SearchCities) => {
   if (search === '') return null
 
   try {
-    const response = await fetch(`${PATH}search.json?key=${API_KEY}&q=${search}`)
+    const response = await fetch(`${PATH}search.json?key=${API_KEY}&lang=es&q=${search}`)
     const cities = await response.json() as Search[]
     console.log('🚀 ~ searchCities ~ cities:', cities)
     return cities?.map(city => ({
@@ -83,7 +83,7 @@ export const searchWeather = async ({ search }: SearchCities) => {
   if (search === '') return null
 
   try {
-    const response = await fetch(`${PATH}current.json?key=${API_KEY}&q=${search}`)
+    const response = await fetch(`${PATH}current.json?key=${API_KEY}&lang=es&q=${search}`)
     const { location, current } = await response.json() as Current
     console.log('🚀 ~ searchWeather ~ { location, current }:', { location, current })
     return {
