@@ -1,5 +1,4 @@
 import WaHeader from '@/components/WaHeader/WaHeader'
-// import { searchWeather } from '@/services/weather'
 import { searchForecast } from '@/services/forecast'
 import { WeatherCurrent } from '@/vite-env'
 import { useEffect, useState } from 'react'
@@ -33,7 +32,7 @@ const Weather = () => {
     <div className={style.panel}>
       <WaHeader name={weather?.name} time={weather?.time} />
       <section className={style.temperature}>
-        <h2>{weather?.temp}°</h2>
+        <h2>{Math.round(weather?.temp)}°</h2>
         <h4>{weather?.conditionText}</h4>
 
       </section>
