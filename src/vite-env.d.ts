@@ -4,6 +4,12 @@ export type City = {
     label:string;
     value:string;
 }
+export type Days = {
+    today:boolean;
+    date: Date;
+    avg_temp: number;
+    conditionCode: number;
+}
 
 export type WeatherCurrent = {
     name:string;
@@ -13,4 +19,5 @@ export type WeatherCurrent = {
     wind:number;
     humidity:number;
     feelslike:number;
+    days: Days[];
 }
