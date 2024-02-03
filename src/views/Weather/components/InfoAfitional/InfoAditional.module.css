@@ -1,0 +1,28 @@
+
+.infoAditional{
+    min-height: 150px;
+    padding: 20px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    background: linear-gradient(180deg, transparent, #282828);
+}
+
+
+.infoAditional__box{
+    text-align: center;
+    flex: 1
+}
+
+.infoAditional__box h4{
+    font-size: 24px;
+    font-weight: 400;
+    margin: 10px 0;
+    letter-spacing: -2px;
+}
+
+.infoAditional__box h5{
+    font-size: 15px;
+    font-weight: 100;
+}

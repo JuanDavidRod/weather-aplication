@@ -1,0 +1,14 @@
+.cardDays{
+    background: #282828;
+    margin: 20px 0;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.days__container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr ;
+    margin-top: 15px;
+    width: 100%;
+    place-content: center;
+}
