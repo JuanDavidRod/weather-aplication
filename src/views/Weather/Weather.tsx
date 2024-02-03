@@ -1,5 +1,5 @@
 import WaHeader from '@/components/WaHeader/WaHeader'
-import { searchWeather } from '@/services/weather'
+import { searchForecast } from '@/services/forecast'
 import { WeatherCurrent } from '@/vite-env'
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
@@ -18,7 +18,7 @@ const Weather = () => {
     (async () => {
       if (idcity) {
         try {
-          const weatherCurrent = await searchWeather({ search: idcity })
+          const weatherCurrent = await searchForecast({ search: idcity })
           if (weatherCurrent) setWeather(weatherCurrent)
         } catch (error) {
           console.log(error)
@@ -32,7 +32,7 @@ const Weather = () => {
     <div className={style.panel}>
       <WaHeader name={weather?.name} time={weather?.time} />
       <section className={style.temperature}>
-        <h2>{weather?.temp}°</h2>
+        <h2>{Math.round(weather?.temp)}°</h2>
         <h4>{weather?.conditionText}</h4>
 
       </section>
@@ -43,7 +43,8 @@ const Weather = () => {
         humidity={weather.humidity}
       />
 
-      <CardDays title='Proximos días' />
+     
+      {weather?.days && <CardDays title='Proximos días' days={weather.days} />}
 
     </div>
   )
