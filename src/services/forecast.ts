@@ -37,7 +37,8 @@ export const searchForecast = async ({ search }: SearchCities) => {
       precip_mm: current.precip_mm,
       pressure_mb: current.pressure_mb,
       cloud: current.cloud,
-      gust_kph: current.gust_kph
+      gust_kph: current.gust_kph,
+      iconCode: current.condition.code
     }
   } catch (e) {
     throw new Error('Error searching weather')
