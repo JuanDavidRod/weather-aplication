@@ -43,7 +43,6 @@ const Weather = () => {
         humidity={weather.humidity}
       />
 
-     
       {weather?.days && <CardDays title='Proximos días' days={weather.days} />}
 
       <ul>
@@ -53,7 +52,7 @@ const Weather = () => {
         <li>{weather.pressure_mb} - Presión atmosférica en milibares.</li>
         <li>{weather.cloud} - Cobertura de nubes en porcentaje.</li>
         <li>{weather.gust_kph} - Velocidad máxima de ráfagas de viento</li>
-        <li>{weather.gust_kph} kilómetros por hora.</li>        
+        <li>{weather.gust_kph} kilómetros por hora.</li>
       </ul>
 
     </div>
