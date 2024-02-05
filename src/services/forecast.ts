@@ -1,16 +1,12 @@
-import { Forecast, SearchCities } from './types'
+import { SearchCities } from './types'
 
 const API_KEY = import.meta.env.VITE_API_KEY
 const PATH = import.meta.env.VITE_URL_API
 
-export const searchForecast = async ({ search }: SearchCities) => {
-  if (search === '') return null
-
-  try {
-    const response = await fetch(`${PATH}forecast.json?key=${API_KEY}&lang=es&days=3&q=${search}`)
-    const { location, current, forecast } = await response.json() as Forecast
-
-    return {
+export const searchForecast = ({ search }: SearchCities) => {
+  return fetch(`${PATH}forecast.json?key=${API_KEY}&lang=es&days=3&q=${search}`)
+    .then(res => res.json())
+    .then(({ location, current, forecast }) => ({
       name: `${location.name}, ${location.region}`,
       time: location.localtime,
       temp: current.temp_c,
@@ -39,8 +35,6 @@ export const searchForecast = async ({ search }: SearchCities) => {
       cloud: current.cloud,
       gust_kph: current.gust_kph,
       iconCode: current.condition.code
-    }
-  } catch (e) {
-    throw new Error('Error searching weather')
-  }
+    })
+    )
 }

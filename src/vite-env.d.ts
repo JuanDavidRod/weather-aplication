@@ -43,4 +43,5 @@ export type WeatherCurrent = {
     pressure_mb:number;
     cloud:number;
     gust_kph:number;
+    iconCode: number
 }
