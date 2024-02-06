@@ -6,6 +6,7 @@ import { useParams } from 'react-router-dom'
 import style from './Weather.module.css'
 import InfoAditional from './components/InfoAfitional/InfoAditional'
 import CardDays from './components/CardsDays/CardsDays'
+import Properties from './components/Properties/Properties'
 
 const Weather = () => {
   const { idcity = '' } = useParams()
@@ -36,15 +37,7 @@ const Weather = () => {
 
       {weather?.days && <CardDays title='Proximos días' days={weather.days} />}
 
-      <ul>
-        <li>{weather.uv} - Índice UV.</li>
-        <li>{weather.vis_km} - Visibilidad en kilómetros.</li>
-        <li>{weather.precip_mm}  - Cantidad de precipitación en milímetros.</li>
-        <li>{weather.pressure_mb} - Presión atmosférica en milibares.</li>
-        <li>{weather.cloud} - Cobertura de nubes en porcentaje.</li>
-        <li>{weather.gust_kph} - Velocidad máxima de ráfagas de viento</li>
-        <li>{weather.gust_kph} kilómetros por hora.</li>
-      </ul>
+      <Properties properties={weather.properties} />
 
     </div>
   )

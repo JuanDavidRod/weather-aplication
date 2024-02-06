@@ -1,0 +1,33 @@
+.container {
+  background: #282828;
+  border-radius: 20px;
+  padding: 10px 22px;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+  color: #606060;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.detail {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+}
+.detail p{
+  margin: 0;
+}
+
+.detail_value{
+  font-size: 50px;
+}
+
+.detail_def{
+  margin-bottom: 10px !important;
+}
+

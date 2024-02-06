@@ -28,12 +28,14 @@ export const searchForecast = ({ search }: SearchCities) => {
           conditionCode: d.day.condition.code
         }))
       ],
-      uv: current.uv,
-      vis_km: current.vis_km,
-      precip_mm: current.precip_mm,
-      pressure_mb: current.pressure_mb,
-      cloud: current.cloud,
-      gust_kph: current.gust_kph,
+      properties: {
+        uv: current.uv,
+        vis_km: current.vis_km,
+        precip_mm: current.precip_mm,
+        pressure_mb: current.pressure_mb,
+        cloud: current.cloud,
+        gust_kph: current.gust_kph
+      },
       iconCode: current.condition.code
     })
     )
