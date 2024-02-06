@@ -10,7 +10,7 @@ interface DayBoxProps {
   day:Days
 }
 
-const DayBox = ({day}:DayBoxProps) => {
+const DayBox = ({ day }:DayBoxProps) => {
   const isToDay = styles.toDay
 
   return (

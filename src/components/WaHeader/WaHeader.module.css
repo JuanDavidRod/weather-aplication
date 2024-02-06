@@ -17,3 +17,10 @@
     font-size: 25px;
     color: #fff;
 }
+
+.header__location {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
+}

@@ -13,8 +13,8 @@ const CardDays = ({ title, days }: Props) => {
       <h3>{title}</h3>
       <div className={styles.days__container}>
         {
-          days.length > 0 && days.map(day=>
-            <WaDayBox key={day.date.toString()} day={day}/>
+          days.length > 0 && days.map(day =>
+            <WaDayBox key={day.date.toString()} day={day} />
           )
         }
       </div>

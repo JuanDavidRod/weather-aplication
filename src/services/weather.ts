@@ -1,16 +1,16 @@
+import { API_KEY, PATH } from '@/const/env'
 import { SearchCities, Current, Search } from './types'
-
-const API_KEY = import.meta.env.VITE_API_KEY
-const PATH = import.meta.env.VITE_URL_API
 
 export const searchCities = async ({ search }: SearchCities) => {
   if (search === '') return null
 
   try {
-    const response = await fetch(`${PATH}search.json?key=${API_KEY}&lang=es&q=${search}`)
-    const cities = await response.json() as Search[]
+    const response = await fetch(
+      `${PATH}search.json?key=${API_KEY}&lang=es&q=${search}`
+    )
+    const cities = (await response.json()) as Search[]
     console.log('🚀 ~ searchCities ~ cities:', cities)
-    return cities?.map(city => ({
+    return cities?.map((city) => ({
       value: city.url,
       label: `${city.name}, ${city.region} (${city.country})`
     }))
@@ -23,9 +23,14 @@ export const searchWeather = async ({ search }: SearchCities) => {
   if (search === '') return null
 
   try {
-    const response = await fetch(`${PATH}current.json?key=${API_KEY}&lang=es&q=${search}`)
-    const { location, current } = await response.json() as Current
-    console.log('🚀 ~ searchWeather ~ { location, current }:', { location, current })
+    const response = await fetch(
+      `${PATH}current.json?key=${API_KEY}&lang=es&q=${search}`
+    )
+    const { location, current } = (await response.json()) as Current
+    console.log('🚀 ~ searchWeather ~ { location, current }:', {
+      location,
+      current
+    })
     return {
       name: `${location.name}, ${location.region}`,
       time: location.localtime,

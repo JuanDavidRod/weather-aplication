@@ -8,29 +8,20 @@ import InfoAditional from './components/InfoAfitional/InfoAditional'
 import CardDays from './components/CardsDays/CardsDays'
 
 const Weather = () => {
-  const { idcity } = useParams()
+  const { idcity = '' } = useParams()
 
-  const [weather, setWeather] = useState<WeatherCurrent>({} as WeatherCurrent)
-
-  console.log('idcity', idcity)
+  const [weather, setWeather] = useState({} as WeatherCurrent)
 
   useEffect(() => {
-    (async () => {
-      if (idcity) {
-        try {
-          const weatherCurrent = await searchForecast({ search: idcity })
-          if (weatherCurrent) setWeather(weatherCurrent)
-        } catch (error) {
-          console.log(error)
-        }
-      }
-    })()
+    searchForecast({ search: idcity })
+      .then(setWeather)
+      .catch((err) => console.log(err))
   }, [])
 
   return (
 
     <div className={style.panel}>
-      <WaHeader name={weather?.name} time={weather?.time} />
+      <WaHeader name={weather?.name} time={weather?.time} iconCode={weather.iconCode} />
       <section className={style.temperature}>
         <h2>{Math.round(weather?.temp)}°</h2>
         <h4>{weather?.conditionText}</h4>
@@ -43,7 +34,6 @@ const Weather = () => {
         humidity={weather.humidity}
       />
 
-     
       {weather?.days && <CardDays title='Proximos días' days={weather.days} />}
 
       <ul>
@@ -53,7 +43,7 @@ const Weather = () => {
         <li>{weather.pressure_mb} - Presión atmosférica en milibares.</li>
         <li>{weather.cloud} - Cobertura de nubes en porcentaje.</li>
         <li>{weather.gust_kph} - Velocidad máxima de ráfagas de viento</li>
-        <li>{weather.gust_kph} kilómetros por hora.</li>        
+        <li>{weather.gust_kph} kilómetros por hora.</li>
       </ul>
 
     </div>
