@@ -1,5 +1,6 @@
 import WeatherIconMapper, { sunnyIconCode } from '@/utils/WeatherIconMapper'
 import style from './WaHeader.module.css'
+import WaIconWeather from '../WaIconWeather'
 
 type WaHeaderProps = {
   name?:string,
@@ -8,7 +9,8 @@ type WaHeaderProps = {
 }
 
 const WaHeader = ({ name, time, iconCode = sunnyIconCode }:WaHeaderProps) => {
-  const weatherImage = WeatherIconMapper.mapIconCodeToImage(iconCode)
+  const weatherAlt = WeatherIconMapper.mapIconCodeToImage(iconCode)
+  console.log('🚀 ~ WaHeader ~ iconCode:', iconCode)
 
   return (
     <header className={style.header}>
@@ -17,9 +19,10 @@ const WaHeader = ({ name, time, iconCode = sunnyIconCode }:WaHeaderProps) => {
           <h3>{time}</h3>
           <h2>{name}</h2>
         </div>
-        <div>
+        <WaIconWeather iconCode={iconCode} alt={weatherAlt} />
+        {/* <div>
           {weatherImage}
-        </div>
+        </div> */}
       </div>
     </header>
   )
