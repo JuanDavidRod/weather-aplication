@@ -6,9 +6,10 @@ type WaHeaderProps = {
   name?:string,
   time?:string,
   iconCode?: number,
+  isDay:boolean
 }
 
-const WaHeader = ({ name, time, iconCode = sunnyIconCode }:WaHeaderProps) => {
+const WaHeader = ({ name, time, iconCode = sunnyIconCode, isDay }:WaHeaderProps) => {
   const weatherAlt = WeatherIconMapper.mapIconCodeToImage(iconCode)
   console.log('🚀 ~ WaHeader ~ iconCode:', iconCode)
 
@@ -19,7 +20,7 @@ const WaHeader = ({ name, time, iconCode = sunnyIconCode }:WaHeaderProps) => {
           <h3>{time}</h3>
           <h2>{name}</h2>
         </div>
-        <WaIconWeather iconCode={iconCode} alt={weatherAlt} />
+        <WaIconWeather iconCode={iconCode} alt={weatherAlt} isDay={isDay} />
         {/* <div>
           {weatherImage}
         </div> */}

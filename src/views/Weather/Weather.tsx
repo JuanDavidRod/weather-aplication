@@ -22,7 +22,7 @@ const Weather = () => {
   return (
 
     <div className={style.panel}>
-      <WaHeader name={weather?.name} time={weather?.time} iconCode={weather.iconCode} />
+      <WaHeader name={weather?.name} time={weather?.time} iconCode={weather.iconCode} isDay={weather.isDay} />
       <section className={style.temperature}>
         <h2>{Math.round(weather?.temp)}°</h2>
         <h4>{weather?.conditionText}</h4>
