@@ -1,15 +1,16 @@
-import { SearchCities } from './types'
+import { WeatherCurrent } from '@/vite-env'
+import { Forecast, SearchCities } from './types'
 
 const API_KEY = import.meta.env.VITE_API_KEY
 const PATH = import.meta.env.VITE_URL_API
 
-export const searchForecast = ({ search }: SearchCities) => {
+export const searchForecast = ({ search }: SearchCities) :Promise<WeatherCurrent> => {
   return fetch(`${PATH}forecast.json?key=${API_KEY}&lang=es&days=3&q=${search}`)
     .then(res => res.json())
-    .then(({ location, current, forecast }) => {
+    .then(({ location, current, forecast }:Forecast) => {
       const regex = /(\w{3})\.png/
       const match = current.condition.icon.match(regex)
-      const iconCode = match[1]
+      const iconCode = Number(match ? match[1] : 200)
 
       return {
         name: `${location.name}, ${location.region}`,
@@ -41,7 +42,8 @@ export const searchForecast = ({ search }: SearchCities) => {
           cloud: current.cloud,
           gust_kph: current.gust_kph
         },
-        iconCode
+        iconCode,
+        isDay: current.is_day === 1
       }
     }
     )

@@ -29,6 +29,7 @@ export type WeatherCurrent = {
     humidity:number;
     feelslike:number;
     days: Days[];
-    properties :Properties,
-    iconCode: number
+    properties :Properties;
+    iconCode: number;
+    isDay:boolean;
 }
