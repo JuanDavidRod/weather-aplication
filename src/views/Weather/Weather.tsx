@@ -6,7 +6,7 @@ import { useParams } from 'react-router-dom'
 import style from './Weather.module.css'
 import InfoAditional from './components/InfoAfitional/InfoAditional'
 import CardDays from './components/CardsDays/CardsDays'
-// import Properties from './components/Properties/Properties'
+import Properties from './components/Properties/Properties'
 
 const Weather = () => {
   const { idcity = '' } = useParams()
@@ -37,7 +37,7 @@ const Weather = () => {
 
       {weather?.days && <CardDays title='Proximos días' days={weather.days} />}
 
-      {/* <Properties properties={weather.properties} /> */}
+      {weather?.properties && <Properties properties={weather.properties} />}
 
     </div>
   )
