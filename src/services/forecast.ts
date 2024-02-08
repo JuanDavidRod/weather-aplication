@@ -25,14 +25,19 @@ export const searchForecast = ({ search }: SearchCities) :Promise<WeatherCurrent
             today: true,
             date: new Date(location.localtime.slice(0, 10)),
             avg_temp: current.temp_c,
-            conditionCode: current.condition.code
+            conditionCode: iconCode
           },
-          ...forecast.forecastday.map(d => ({
-            today: false,
-            date: d.date,
-            avg_temp: d.day.avgtemp_c,
-            conditionCode: d.day.condition.code
-          }))
+          ...forecast.forecastday.map(d => {
+            const match = d.day.condition.icon.match(regex)
+            const iconCode = Number(match ? match[1] : 200)
+
+            return {
+              today: false,
+              date: d.date,
+              avg_temp: d.day.avgtemp_c,
+              conditionCode: iconCode
+            }
+          })
         ],
         properties: {
           uv: current.uv,
