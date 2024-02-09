@@ -5,6 +5,7 @@
 }
 
 .header {
+  font-size: 15px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -12,6 +13,7 @@
   color: #606060;
   font-weight: 500;
   text-transform: uppercase;
+  min-height: 70px;
 }
 
 .detail {
@@ -19,15 +21,13 @@
   flex-direction: row;
   align-items: flex-end;
 }
-.detail p{
-  margin: 0;
-}
 
 .detail_value{
+  margin: 0;
   font-size: 50px;
 }
 
 .detail_def{
-  margin-bottom: 10px !important;
+  margin: 10px;
 }
 
