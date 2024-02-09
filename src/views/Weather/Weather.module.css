@@ -6,6 +6,14 @@
     overflow-y: scroll;
     padding: 10px;
 }
+
+.bg_day{
+  background: radial-gradient(ellipse 80% 40% at 50% -20%,#404326,#1f1f1fab);
+}
+
+.bg_night{
+  background: radial-gradient(ellipse 80% 40% at 50% -20%,#262943,#1f1f1fab);
+}
   
 .temperature{
     display: grid;

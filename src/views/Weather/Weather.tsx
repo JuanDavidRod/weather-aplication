@@ -21,7 +21,7 @@ const Weather = () => {
 
   return (
 
-    <div className={style.panel}>
+    <div className={`${style.panel} ${weather.isDay ? style.bg_day : style.bg_night}`}>
       <WaHeader name={weather?.name} time={weather?.time} iconCode={weather.iconCode} isDay={weather.isDay} />
       <section className={style.temperature}>
         <h2>{Math.round(weather?.temp)}°</h2>
