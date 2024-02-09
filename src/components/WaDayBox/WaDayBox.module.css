@@ -28,6 +28,6 @@
 }
 
 .days__item.toDay{
-    background: linear-gradient(90deg, rgb(255,0,226) 15%, rgb(0,61,255) 85%);
+    background: linear-gradient(142deg, rgb(255,0,226) 15%, rgb(0,61,255) 85%);
     color: white;
 }

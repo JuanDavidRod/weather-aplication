@@ -7,7 +7,7 @@
 
 .days__container{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr ;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     margin-top: 15px;
     width: 100%;
     place-content: center;
