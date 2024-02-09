@@ -1,3 +1,4 @@
+import { LANGUAGE } from '@/const/env'
 import { WeatherCurrent } from '@/vite-env'
 import { Forecast, SearchCities } from './types'
 
@@ -5,7 +6,7 @@ const API_KEY = import.meta.env.VITE_API_KEY
 const PATH = import.meta.env.VITE_URL_API
 
 export const searchForecast = ({ search }: SearchCities) :Promise<WeatherCurrent> => {
-  return fetch(`${PATH}forecast.json?key=${API_KEY}&lang=es&days=3&q=${search}`)
+  return fetch(`${PATH}forecast.json?key=${API_KEY}&lang=${LANGUAGE}&days=3&q=${search}`)
     .then(res => res.json())
     .then(({ location, current, forecast }:Forecast) => {
       const regex = /(\w{3})\.png/

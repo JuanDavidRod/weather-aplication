@@ -1,4 +1,4 @@
-import { API_KEY, PATH } from '@/const/env'
+import { API_KEY, PATH , LANGUAGE} from '@/const/env'
 import { SearchCities, Current, Search } from './types'
 
 export const searchCities = async ({ search }: SearchCities) => {
@@ -6,7 +6,7 @@ export const searchCities = async ({ search }: SearchCities) => {
 
   try {
     const response = await fetch(
-      `${PATH}search.json?key=${API_KEY}&lang=es&q=${search}`
+      `${PATH}search.json?key=${API_KEY}&lang=${LANGUAGE}&q=${search}`
     )
     const cities = (await response.json()) as Search[]
     console.log('🚀 ~ searchCities ~ cities:', cities)
@@ -24,7 +24,7 @@ export const searchWeather = async ({ search }: SearchCities) => {
 
   try {
     const response = await fetch(
-      `${PATH}current.json?key=${API_KEY}&lang=es&q=${search}`
+      `${PATH}current.json?key=${API_KEY}&lang=${LANGUAGE}&q=${search}`
     )
     const { location, current } = (await response.json()) as Current
     console.log('🚀 ~ searchWeather ~ { location, current }:', {
