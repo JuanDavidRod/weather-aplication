@@ -1,6 +1,7 @@
 import WeatherIconMapper, { sunnyIconCode } from '@/utils/WeatherIconMapper'
 import style from './WaHeader.module.css'
 import WaIconWeather from '../WaIconWeather'
+import { Link } from 'react-router-dom'
 
 type WaHeaderProps = {
   name?:string,
@@ -14,6 +15,7 @@ const WaHeader = ({ name, time, iconCode = sunnyIconCode, isDay }:WaHeaderProps)
 
   return (
     <header className={style.header}>
+      <h1><Link to='/'>Weather App</Link></h1>
       <div className={style.header__location}>
         <div>
           <h3>{time}</h3>
