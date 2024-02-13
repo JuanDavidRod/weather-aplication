@@ -7,7 +7,7 @@ const WaFooter = () => {
     <footer className={styles.footer}>
       <Row align='middle'>
         <Col span={12}>
-          <p>Powered by <strong>WeatherAPI.com</strong></p>
+          <p>Powered by <a href='https://www.weatherapi.com/' title='Free Weather API' target='_blank' rel='noreferrer'>WeatherAPI.com</a></p>
         </Col>
         <Col span={12} className={styles.footer_icon}>
           <LinkedinOutlined />
