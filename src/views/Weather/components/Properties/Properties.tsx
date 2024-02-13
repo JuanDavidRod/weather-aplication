@@ -1,7 +1,13 @@
 import { Properties as IProperties } from '@/vite-env'
 import style from './Properties.module.css'
 import WaPropBox from '@/components/WaPropBox/WaPropBox'
-import iconWindSpeed from '@/assets/icon-windspeed.png'
+
+import clouds from '@/assets/icons-props/clouds.svg'
+import precipitation from '@/assets/icons-props/precipitation.svg'
+import pressure from '@/assets/icons-props/pressure.svg'
+import winds from '@/assets/icons-props/winds.svg'
+import iconUv from '@/assets/icons-props/uv.svg'
+import visibility from '@/assets/icons-props/visibility.svg'
 
 interface Props{
     properties: IProperties
@@ -14,37 +20,37 @@ const Properties = ({ properties: { uv, cloud, gust_kph: gustKph, precip_mm: pre
         title='Indice UV'
         value={uv}
         def='Bajo'
-        icon={iconWindSpeed}
+        icon={iconUv}
       />
       <WaPropBox
         title='Visibilidad'
         value={visKM}
         def='Km'
-        icon={iconWindSpeed}
+        icon={visibility}
       />
       <WaPropBox
         title='Precipitacion'
         value={precipMm}
         def='mm'
-        icon={iconWindSpeed}
+        icon={precipitation}
       />
       <WaPropBox
         title='Presion Atmosférica'
         value={pressureMb}
         def='mb'
-        icon={iconWindSpeed}
+        icon={pressure}
       />
       <WaPropBox
         title='Cobertura Nubes'
         value={cloud}
         def='%'
-        icon={iconWindSpeed}
+        icon={clouds}
       />
       <WaPropBox
         title='Rafagas Viento'
         value={gustKph}
         def='km/h'
-        icon={iconWindSpeed}
+        icon={winds}
       />
     </section>
   )

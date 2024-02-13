@@ -8,18 +8,23 @@
   font-size: 15px;
   display: flex;
   flex-direction: row;
-  align-items: center;
   gap: 5px;
   color: #606060;
   font-weight: 500;
   text-transform: uppercase;
-  min-height: 70px;
+  min-height: 30px;
+  align-items: center;
+}
+
+.header p{
+  margin: 0px;
 }
 
 .detail {
   display: flex;
   flex-direction: row;
   align-items: flex-end;
+  margin-top: 25px;
 }
 
 .detail_value{
