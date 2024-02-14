@@ -10,8 +10,8 @@ const WaFooter = () => {
           <p>Powered by <a href='https://www.weatherapi.com/' title='Free Weather API' target='_blank' rel='noreferrer'>WeatherAPI.com</a></p>
         </Col>
         <Col span={12} className={styles.footer_icon}>
-          <LinkedinOutlined />
-          <GithubOutlined />
+          <a href='https://github.com/JuanDavidRod' target='_blank' rel='noreferrer'> <LinkedinOutlined /></a>
+          <a href='https://www.linkedin.com/in/juan-david-rodriguez-hernandez-64142225a/' target='_blank' rel='noreferrer'><GithubOutlined /></a>
         </Col>
       </Row>
     </footer>
