@@ -1,4 +1,4 @@
-import { Alert, Select } from 'antd'
+import { Select } from 'antd'
 import style from './WaSelect.module.css'
 import { type City } from '@/vite-env'
 
@@ -14,18 +14,21 @@ const WaSelect = ({ options, placeholder, loading, onChange, onSearch }: Props) 
   const filterOption = (input: string, option?: City) =>
     (option?.label ?? '').toLowerCase().includes(input.toLowerCase())
 
+  const textWhite = (t:string) => <p style={{ color: '#fff' }}>{t}</p>
+
   return (
     <Select
       loading={loading}
       className={style.waSelect}
       showSearch
-      placeholder={placeholder}
+      placeholder={textWhite(placeholder)}
       optionFilterProp='children'
       onChange={onChange}
       filterOption={filterOption}
       options={options}
       onSearch={onSearch}
-      notFoundContent={<Alert message='No hay ciudades sugeridas' type='info' />}
+      notFoundContent={textWhite('Sin sugerencias')}
+      style={{ height: 40 }}
     />
   )
 }
