@@ -1,9 +1,17 @@
 /// <reference types="vite/client" />
+import { ReactElement } from 'react'
 
 export type City = {
     label:string;
     value:string;
 }
+
+export interface CityKey extends City {
+    key:number
+}
+
+export type RenderCityKey = ({ key, label, value }:CityKey)=> ReactElement
+
 export type Days = {
     today:boolean;
     date: Date;
