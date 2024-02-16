@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { WeatherCurrent } from '@/vite-env'
+import { City, WeatherCurrent } from '@/vite-env'
 import { searchForecast } from '@/services/forecast'
 
 const useWeather = (idcity: string) => {
@@ -13,6 +13,19 @@ const useWeather = (idcity: string) => {
       .catch((err) => setError(err))
       .finally(() => { setLoading(false) })
   }, [])
+
+  useEffect(() => {
+    if (weather?.name) {
+      const localSuggest = JSON.parse(localStorage.getItem('WASuggest') ?? '[]') || []
+
+      const exist = localSuggest.find((objeto:City) => (objeto.value === idcity))
+
+      if (!exist) {
+        localSuggest.push({ label: weather.name, value: idcity })
+        localStorage.setItem('WASuggest', JSON.stringify(localSuggest))
+      }
+    }
+  }, [weather])
 
   return {
     weather,

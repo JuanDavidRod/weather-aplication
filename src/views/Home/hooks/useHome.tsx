@@ -33,8 +33,9 @@ const useHome = () => {
       navigator.geolocation.getCurrentPosition(async function ({ coords }) {
         const search = `${coords.latitude},${coords.longitude}`
         try {
-          const cities = await searchCities({ search })
-          if (cities?.length) setOptionSuggest(cities)
+          const city = await searchCities({ search })
+          const localSuggest = JSON.parse(localStorage.getItem('WASuggest') ?? '[]') || []
+          if (city?.length) setOptionSuggest([city[0], ...localSuggest.filter((c:City) => c.value !== city[0].value)])
         } catch (error) {
           console.log(error)
         }
@@ -46,7 +47,6 @@ const useHome = () => {
 
   const renderSuggest = (render: RenderCityKey) :undefined |ReactElement[] => {
     if (optionSuggest.length === 0) return
-    console.log(optionSuggest)
     return optionSuggest.map(({ label, value }, key) => (render({ key, label, value })))
   }
 
