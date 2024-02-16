@@ -1,4 +1,4 @@
-import { API_KEY, PATH , LANGUAGE} from '@/const/env'
+import { API_KEY, PATH, LANGUAGE } from '@/const/env'
 import { SearchCities, Current, Search } from './types'
 
 export const searchCities = async ({ search }: SearchCities) => {
@@ -9,7 +9,6 @@ export const searchCities = async ({ search }: SearchCities) => {
       `${PATH}search.json?key=${API_KEY}&lang=${LANGUAGE}&q=${search}`
     )
     const cities = (await response.json()) as Search[]
-    console.log('🚀 ~ searchCities ~ cities:', cities)
     return cities?.map((city) => ({
       value: city.url,
       label: `${city.name}, ${city.region} (${city.country})`
